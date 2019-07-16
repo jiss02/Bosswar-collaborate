@@ -12,23 +12,24 @@
         {% csrf_token %}
         Username:
         <br>
-        <input type="text" name ="username" value="">
+        <input type="text" name ="username" value="" required='required'>
         <br>
         Email:
         <br>
-        <input type="text" name="eamil" value="">
+        <input type="email" name="email" value="">
         <br>
         Phonenumber:
         <br>
-        <input type="number" name="phonenumber" value="">
+        {% comment %} <input type="number" name="phonenumber" min='0' inputmode='numeric' pattern='[0-9]*' required='required'> {% endcomment %}
+        <input type="text" name="phonenumber" required='required'>
         <br>
         Password:
         <br>
-        <input type="password1" name="password" value="">
+        <input type="password1" name="password1" value="">
         <br>
         Confirm Password:
         <br>
-        <input type="password2" name="confirmpassword" value="">
+        <input type="password" name="password2" value="">
         <br>
         <br>
         <input type="submit" value="sign up">

@@ -6,8 +6,8 @@ from phonenumber_field.modelfields import PhoneNumberField
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
     email = models.EmailField(null=True) 
-    tel = PhoneNumberField(unique=True)
+    phonenumber = PhoneNumberField(unique=True)
     point = models.IntegerField(default=500)
 
     def __str__(self):
-        return self.user
+        return self.email
