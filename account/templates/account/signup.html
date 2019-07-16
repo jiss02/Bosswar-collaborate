@@ -20,12 +20,11 @@
         <br>
         Phonenumber:
         <br>
-        {% comment %} <input type="number" name="phonenumber" min='0' inputmode='numeric' pattern='[0-9]*' required='required'> {% endcomment %}
-        <input type="text" name="phonenumber" required='required'>
+        <input type="text" name="phonenumber" inputmode='numeric' pattern='\d{3}-\d{3,4}-\d{4}' placeholder='ex)010-1234-1234' required='required'>
         <br>
         Password:
         <br>
-        <input type="password1" name="password1" value="">
+        <input type="password" name="password1" value="">
         <br>
         Confirm Password:
         <br>
