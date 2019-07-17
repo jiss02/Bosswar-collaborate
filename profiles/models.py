@@ -18,6 +18,7 @@ class Profile(models.Model):
         ]
     )
     point = models.IntegerField(default=500)
+    votes = models.IntegerField(default=3)
 
     def __str__(self):
         return self.email
