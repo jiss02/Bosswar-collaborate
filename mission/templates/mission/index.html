@@ -1,1 +1,10 @@
 index
+
+
+<br>
+{% for post in posts %}
+<a href="{% url 'detail' post.id %}">{{post.title}} </a>
+
+<br>
+{% endfor %}
+<a href="{% url 'postcreate' %}">등록하기</a>
