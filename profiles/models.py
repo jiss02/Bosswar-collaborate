@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
-    email = models.EmailField(null=True) 
+    # email = models.EmailField(null=True) 
     
     phonenumber = models.CharField(
         max_length=13,
