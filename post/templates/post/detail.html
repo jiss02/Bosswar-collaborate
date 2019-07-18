@@ -7,8 +7,9 @@
 <br>
 {% endif %}
 
+
 <h1>detail</h1>
-<br>
+<br> 
 제목:{{post.title}}
 <br>
 작성자:{{post.writer}}
@@ -22,8 +23,10 @@
 덧붙임말:{{post.description}}
 <br>
 <br>
-<br>
+{% if post.writer == request.user %}
 <a href="{% url 'postdelete' post.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
+{% else %}
+{% endif %}
 <a href="{% url 'index' %}">메인으로</a>
 
 {% endblock %}

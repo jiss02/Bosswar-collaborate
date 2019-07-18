@@ -8,14 +8,26 @@ index
 <br>
 {{ Mission_end }}
 <br>
-
 {% endif %}
 <br>
+
 {% for post in posts %}
 <a href="{% url 'detail' post.id %}">{{post.title}} </a>
+
 <br>
 {% endfor %}
 <br>
 <br>
+
+{% if user.is_authenticated %}
 <a href="{% url 'postcreate' %}">참가하기</a>
-{% endblock %}
+<form action="{% url 'logout' %}" method="POST">
+{% csrf_token %}
+<input type="submit" value = "로그아웃">
+<!--<a href="{% url 'logout' %}">로그아웃</a>-->
+</form>
+{% else %}
+<a href="{% url 'login' %}" onclick="return confirm('로그인을 한 후, \'참가하기\'가 가능합니다.')">참가하기</a>
+{% endif %}
+
+{% endblock content%}

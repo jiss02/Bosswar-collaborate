@@ -21,4 +21,4 @@ class Profile(models.Model):
     votes = models.IntegerField(default=3)
 
     def __str__(self):
-        return self.email
+        return self.phonenumber

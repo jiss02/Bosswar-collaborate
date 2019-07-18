@@ -21,7 +21,7 @@ def logout(request):
     if request.method == "POST":
         auth.logout(request)
         return redirect('index')
-    return render(request, 'account/signup.html')
+    return redirect('index')
 
 def signup(request):
     if request.method == 'POST':
@@ -29,6 +29,6 @@ def signup(request):
             user = User.objects.create_user(
                 request.POST['username'], password=request.POST['password1'])
             auth.login(request, user)
-            profile = Profile.objects.create(user=request.user, email=request.POST['email'], phonenumber=request.POST['phonenumber'])
+            profile = Profile.objects.create(user=request.user, phonenumber=request.POST['phonenumber'])
             return redirect('index')
     return render(request, 'account/signup.html')

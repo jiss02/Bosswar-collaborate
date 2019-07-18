@@ -1,30 +1,33 @@
 from django.shortcuts import render,get_object_or_404
+from .models import Mission
+from .forms import MissionForm
 from post.models import Post
-from .forms import PostForm
 
-# Create your views here.
+########### 포스트 띄우기 ############
 
 def index(request):
     posts = Post.objects.all()
     return render(request, 'mission/index.html',{'posts':posts})
 
+############# 미션 관련 ##############
+
 def new(request):
     return render(request, 'mission/new.html')
 
-def postcreate(request):
+def missioncreate(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = MissionForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
+            mission = form.save(commit=False)
+            mission.save()
             return redirect('index')
     else:
-        form = PostForm()
+        form = MissionForm()
         return render(request, 'mission/new.html', {'form': form})
 
-def postdelete(request, post_id):
-    post = get_object_or_404(Post, pk = post_id)
-    post.delete()
+def missiondelete(request, post_id):
+    mission = get_object_or_404(Post, pk = post_id)
+    mission.delete()
     return redirect('index')
 
 

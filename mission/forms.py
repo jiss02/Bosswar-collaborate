@@ -1,7 +1,7 @@
 from django import forms
-from .models import Post
+from .models import Mission
 
-class PostForm(forms.ModelForm):
+class MissionForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ['mission_number', 'title', 'content']
+        model = Mission
+        fields = ['mission_number','mission_name']
