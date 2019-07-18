@@ -18,7 +18,7 @@ class Profile(models.Model):
         ]
     )
     point = models.IntegerField(default=500)
-    votes = models.IntegerField(default=3)
+    votes = models.IntegerField(default=2)
 
     def __str__(self):
         return self.phonenumber

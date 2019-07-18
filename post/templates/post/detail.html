@@ -7,7 +7,6 @@
 <br>
 {% endif %}
 
-
 <h1>detail</h1>
 <br> 
 제목:{{post.title}}
@@ -16,13 +15,28 @@
 <br>
 미션넘버:{{post.mission_number}}
 <br>
-작성날짜:{{post.created_at}}
+작성날짜:{{post.created_at|date:"y/m/j g시 i분"}}
 <br>
 이미지:{{post.content}}
 <br>
-덧붙임말:{{post.description}}
+덧붙임말:{{post.description|linebreaks}}
 <br>
 <br>
+투표 수:{{ post.votelike.count}}
+<br>
+<br>
+남은 투표 수 : {{request.user.profile.votes}}
+<br>
+<br>
+{% if post.writer != request.user %}
+    {% if vote %}
+        <a href="{% url 'postvote' post.id %}">투표취소</a>
+    {% else %}
+        <a href="{% url 'postvote' post.id %}">투표하기</a>
+    {% endif %}
+{% else %}
+<a href="{% url 'index' %}" onclick="return confrim('자신에게는 투표할 수 없습니다.')">메인으로 돌아가기</a>
+{% endif %}
 {% if post.writer == request.user %}
 <a href="{% url 'postdelete' post.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
 {% else %}

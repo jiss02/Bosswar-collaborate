@@ -15,8 +15,8 @@ class Post(models.Model):
         return self.title
 
 class PostVote(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='votelike', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='voteuser', on_delete=models.CASCADE)
     created_date = models.DateTimeField(
         auto_now_add=True,
     )	
