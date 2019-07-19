@@ -13,11 +13,11 @@
     {% csrf_token %}
     Username:
     <br>
-    <input name="username" type="text" value="" placeholder="아이디를 입력하세요.">
+    <input name="username" type="text" value="" placeholder="아이디를 입력하세요." required='required'>
     <br>
     Password:
     <br>
-    <input name="password" type="password" value="" placeholder="비밀번호를 입력하세요.">
+    <input name="password" type="password" value="" placeholder="비밀번호를 입력하세요." required='required'>
     <br>
     <br>
     <input type="submit" value="Login">

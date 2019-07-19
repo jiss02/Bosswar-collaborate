@@ -19,6 +19,7 @@ import profiles.views
 import mission.views
 import post.views
 import account.views
+import idea.views
 
 
 urlpatterns = [
@@ -28,4 +29,5 @@ urlpatterns = [
     path('mission/',include('mission.urls')),
     path('post/',include('post.urls')),
     path('account/',include('account.urls')),
+    path('idea/',include('idea.urls')),
 ]

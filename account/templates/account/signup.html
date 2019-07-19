@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% if error %}
-{{ error }}
-<br>
-<br>
+{% if pwerror %}
+{{ pwerror }}
 {% endif %}
 
     <h1>sign up</h1>
@@ -26,11 +24,11 @@
         <br>
         Password:
         <br>
-        <input type="password" name="password1" value="">
+        <input type="password" name="password1" value="" required='required'>
         <br>
         Confirm Password:
         <br>
-        <input type="password" name="password2" value="">
+        <input type="password" name="password2" value="" required='required'>
         <br>
         <br>
         <input type="submit" value="sign up">

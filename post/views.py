@@ -15,9 +15,13 @@ def new(request):
 
 def detail(request,post_id):
     post_detail = get_object_or_404(Post,pk = post_id)
-    vote = PostVote.objects.filter(user=request.user, post=post_detail)
-    return render(request, 'post/detail.html', {'post':post_detail, 'vote':vote})
-
+    if request.user.is_authenticated:
+        vote = PostVote.objects.filter(user=request.user, post=post_detail)
+        return render(request, 'post/detail.html', {'post':post_detail, 'vote':vote})
+    else:
+        return render(request, 'post/detail.html', {'post':post_detail})
+    
+    
 def postcreate(request):
     if request.method == 'POST':
         form = PostForm(request.POST) 
@@ -29,7 +33,7 @@ def postcreate(request):
         user.save()
         if form.is_valid():
             post = form.save(commit = False)
-            mission_object = Mission.objects.get(mission_number=1)
+            mission_object = Mission.objects.get(id = request.POST['mission_number'])
             now = datetime.datetime.now()
             if now <= mission_object.end_at:
                 post.writer = request.user

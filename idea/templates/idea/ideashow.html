@@ -1,0 +1,9 @@
+<p>작성자: {{idea.whoseidea}}</p>
+<p>제목: {{idea.title}}</p>
+<p>내용: {{idea.content}}</p>
+
+{% if request.user == idea.whoseidea  %}
+<a href="{% url 'ideadelete' idea.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
+{% else %}
+{% endif %}
+<a href="{% url 'ideaboard' %}">아이디어 게시판으로</a>

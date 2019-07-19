@@ -31,4 +31,6 @@ def signup(request):
             auth.login(request, user)
             profile = Profile.objects.create(user=request.user, phonenumber=request.POST['phonenumber'])
             return redirect('index')
+        else:
+            return render(request, 'account/signup.html',{"pwerror":'패스워드가 일치하지 않습니다.'})
     return render(request, 'account/signup.html')
