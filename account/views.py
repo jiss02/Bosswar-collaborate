@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from profiles.models import Profile
-
 # Create your views here.
 def login(request):
     if request.method == 'POST':
@@ -34,3 +33,5 @@ def signup(request):
         else:
             return render(request, 'account/signup.html',{"pwerror":'패스워드가 일치하지 않습니다.'})
     return render(request, 'account/signup.html')
+
+

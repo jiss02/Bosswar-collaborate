@@ -1,22 +1,51 @@
 {% extends 'base.html' %}
-{% block content %}
 
+{% block head %}
+<!--
+    <script language = 'javascript'>
+        function duplicationcheck()
+        {
+            var users = [];
+            var userName = document.getElementById('username').value;
+            for(var i = 0; i<'{{//쿼리셋갯수 혹은 전체목록?}}'.length; i++)
+            {  
+                //{{profile}}이 뭔 형태로 오는지...
+                uses.append(//profile[i]
+                );
+            }
+            for (var i = 0; i < users.length; i++)
+            {
+                if (userName == users[i])
+                {
+                    document.getElementById('username').value ='';
+                    return alert(userName+'는 존재하는 아이디입니다.')
+                }
+            }
+        }    
+    </script>   
+-->
+{% endblock head %}
+
+{% block content %}
 {% if pwerror %}
 {{ pwerror }}
 {% endif %}
+
 
     <h1>sign up</h1>
     <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
         Username:
         <br>
-        <input type="text" name ="username" value="" required='required'>
+        <input type="text" id = 'username 'name ="username" value="" pattern="^[가-힣]{2,20}$" required='required' onkeyup='duplicationcheck()'>
+
         <br>
         <!--
         Email:
         <br>
         <input type="email" name="email" value="">
         <br>
+         [a-zA-Z]\D{6,10}\d{2,6}
         -->
         Phonenumber:
         <br>
@@ -24,7 +53,8 @@
         <br>
         Password:
         <br>
-        <input type="password" name="password1" value="" required='required'>
+       
+        <input type="password" name="password1" pattern="^[A-Za-z0-9]{6,12}$" value="" required='required'>
         <br>
         Confirm Password:
         <br>

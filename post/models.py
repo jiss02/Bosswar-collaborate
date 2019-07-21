@@ -8,7 +8,8 @@ class Post(models.Model):
     mission_number = models.ForeignKey(Mission, related_name ='mission_num', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=200)
-    content = models.TextField() # 이미지 필드 사용예정
+    content = models.ImageField(upload_to='images/')
+    urlcontent = models.URLField(null=True,max_length=200)
     description = models.TextField()
 
     def __str__(self):

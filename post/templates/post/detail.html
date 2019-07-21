@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load static %}
 {% if error %}
 {{ error }}
 <br>
 <br>
 {% endif %}
+
 <h1>{{post.title}}</h1>
 <br>
 작성자 : {{post.writer}}
@@ -14,8 +15,13 @@
 <br>
 작성날짜 : {{post.created_at|date:"y/m/j g시 i분"}}
 <br>
-이미지 : {{post.content}}
+이미지 : 
 <br>
+<img src="{{post.content.url}}" alt="이미지" width="452" height="254"/>
+<br>
+URL :
+<br>
+<iframe width="452" height="254" src="{{post.urlcontent}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 {{post.description|linebreaks}}
 <br>
@@ -28,6 +34,7 @@
 <br>
 <br>
 {% endif %}
+
 {% if post.writer != request.user %}
     {% if vote %}
         <a href="{% url 'postvote' post.id %}">투표취소</a>
@@ -43,5 +50,4 @@
 {% endif %}
 
 <a href="{% url 'index' %}">메인으로</a>
-
 {% endblock %}

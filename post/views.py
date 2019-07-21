@@ -8,6 +8,7 @@ from post.models import PostVote
 import datetime
 
 
+
 # Create your views here.
 
 def new(request):
@@ -20,11 +21,10 @@ def detail(request,post_id):
         return render(request, 'post/detail.html', {'post':post_detail, 'vote':vote})
     else:
         return render(request, 'post/detail.html', {'post':post_detail})
-    
-    
+
 def postcreate(request):
     if request.method == 'POST':
-        form = PostForm(request.POST) 
+        form = PostForm(request.POST,request.FILES) 
         user = Profile.objects.get(user_id=request.user.id)
         if user.point < 500:
             return render(request, 'mission/index.html', {"Mission_end": '포인트가 부족합니다.'})
@@ -37,6 +37,10 @@ def postcreate(request):
             now = datetime.datetime.now()
             if now <= mission_object.end_at:
                 post.writer = request.user
+                post.content = request.FILES['content']
+                makeurl = 'https://youtube.com/embed/'
+                makeurl += request.POST['urlcontent'].split('/')[-1]
+                post.urlcontent = makeurl
                 post.save()
                 return redirect('index')
             else:

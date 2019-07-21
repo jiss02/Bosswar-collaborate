@@ -20,7 +20,8 @@ import mission.views
 import post.views
 import account.views
 import idea.views
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', mission.views.index, name='index'),
@@ -30,4 +31,4 @@ urlpatterns = [
     path('post/',include('post.urls')),
     path('account/',include('account.urls')),
     path('idea/',include('idea.urls')),
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
