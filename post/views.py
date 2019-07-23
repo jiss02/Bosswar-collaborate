@@ -7,10 +7,7 @@ from mission.models import Mission
 from post.models import PostVote
 import datetime
 
-
-
 # Create your views here.
-
 def new(request):
     return render(request,'post/new.html')
 

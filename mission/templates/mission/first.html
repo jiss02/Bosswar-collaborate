@@ -1,0 +1,16 @@
+first
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
+<!--몇회차+제목
+{% for first in 객체s.all %}
+{% endfor %}
+-->
+<a href="{% url 'first_detail' %}">자세히 보기</a>
+{% endblock %}

@@ -1,3 +1,5 @@
+first_detail
+
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
@@ -29,25 +31,7 @@ URL :
 투표 수 : {{ post.votelike.count}}
 <br>
 <br>
-{% if user.is_authenticated %}
-남은 투표 수 : {{request.user.profile.votes}}
 <br>
-<br>
-{% endif %}
-
-{% if post.writer != request.user %}
-    {% if vote %}
-        <a href="{% url 'postvote' post.id %}">투표취소</a>
-    {% elif request.user.profile.votes == 0 %}
-        <a href="{% url 'postvote' post.id %}" onclick="alert('모든 표가 소진되었습니다!')">투표하기</a>
-    {% elif post.writer == request.user %}
-        <a href="{% url 'postvote' post.id %}">투표하기</a>
-    {% endif %}
-{% endif %}
-{% if post.writer == request.user %}
-<a href="{% url 'postdelete' post.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
-{% else %}
-{% endif %}
-
 <a href="{% url 'index' %}">메인으로</a>
 {% endblock %}
+
