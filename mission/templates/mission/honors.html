@@ -13,12 +13,8 @@
 -->
 <h3>honors.html</h3>
 
-{% for pv in postvotes %}
-    글제목: {{pv.post}}<br/>
-    어떤 미션?: {{pv.post.mission_number}}<br/>
-    <br/>
+{% for mission, post in honor %}
+    미션이름 : {{ mission }}<br/>
+    우승한 글 : {{ post }}<br/><br/>
 {% endfor %}
-
-{{honor}}
-
 {% endblock %}

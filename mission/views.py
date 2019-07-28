@@ -21,7 +21,25 @@ def index(request):
 
 def honors(request):
         postvotes = PostVote.objects.all().order_by('post')
-        return render(request, 'mission/honors.html', {'postvotes': postvotes})
+
+        ## 현이 ##
+        honors = []
+        max = 0
+        missions = Mission.objects.values('id')
+        for one in missions:
+                post_id = -1
+                max = -1
+                posts = Post.objects.filter(mission_number_id=one["id"])
+                if posts:
+                        for post in posts:
+                                count = post.votelike.count()
+                                if max < count:
+                                        max = count
+                                        post_id = post.id
+                        # honors.append([one["id"], post_id])
+                        honors.append([get_object_or_404(Mission, pk=one["id"]), get_object_or_404(Post, pk=post_id)])
+
+        return render(request, 'mission/honors.html', {'postvotes': postvotes,'honor':honors})
 # 최신 미션 넘버 ->
 # PV객체가 많은 순서대로 정렬
 
