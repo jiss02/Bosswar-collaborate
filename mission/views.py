@@ -6,27 +6,24 @@ import datetime
 from django.core.paginator import Paginator
 from django.db.models import Count
 from django.db.models.aggregates import Max
+from django.db.models import Avg, Max, Sum, Count
 ########### 포스트 띄우기 #############
 
 def index(request): 
-    posts_all = Post.objects.all().order_by('-id')
+    mission = Mission.objects.filter(start_at__lt = datetime.datetime.now()).filter(end_at__gt = datetime.datetime.now()).all()
+    posts_all = Post.objects.filter(mission_number_id=mission[0].id).order_by('-id')
     paginator = Paginator(posts_all, 6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
-    mission = Mission.objects.filter(start_at__lt = datetime.datetime.now()).filter(end_at__gt = datetime.datetime.now()).all()
     return render(request, 'mission/index.html',{'posts':posts,'posts_all':posts_all,'mission':mission})
 
 ############# 명예의 전당 ##############
 
-def first_detail(request, first_id):
-    first_detail = get_object_or_404(, pk = 'first_id')
-    return render(request, 'first_detail.html',{'first_detail' : first_detail})
-
-def firstperson(request):
-    firsts = Post.objects.group_by('mission_number')
-    firsts = PostVote.votelike.values('mission_number')
-    firsts = firsts.annotate(user_id=Max(Post.votelike.count))
-    #return render(request, 'mission/first.html',{'firsts':firsts})
+def honors(request):
+        postvotes = PostVote.objects.all().order_by('post')
+        return render(request, 'mission/honors.html', {'postvotes': postvotes})
+# 최신 미션 넘버 ->
+# PV객체가 많은 순서대로 정렬
 
 ############# 미션 관련 ################
 

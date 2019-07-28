@@ -11,6 +11,7 @@ class Post(models.Model):
     content = models.ImageField(upload_to='images/')
     urlcontent = models.URLField(null=True,max_length=200)
     description = models.TextField()
+    users = models.ManyToManyField(User, through='PostVote')
 
     def __str__(self):
         return self.title

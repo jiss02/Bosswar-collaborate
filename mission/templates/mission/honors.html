@@ -1,4 +1,3 @@
-first
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
@@ -12,5 +11,14 @@ first
 {% for first in 객체s.all %}
 {% endfor %}
 -->
-<a href="{% url 'first_detail' %}">자세히 보기</a>
+<h3>honors.html</h3>
+
+{% for pv in postvotes %}
+    글제목: {{pv.post}}<br/>
+    어떤 미션?: {{pv.post.mission_number}}<br/>
+    <br/>
+{% endfor %}
+
+{{honor}}
+
 {% endblock %}
