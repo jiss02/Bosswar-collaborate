@@ -26,7 +26,11 @@ def honors(request):
         honors = []
         max = 0
         missions = Mission.objects.values('id')
+        now = Mission.objects.filter(start_at__lt = datetime.datetime.now()).filter(end_at__gt = datetime.datetime.now()).all()
         for one in missions:
+                print(now)
+                if one['id'] == now[0].id:
+                        continue
                 post_id = -1
                 max = -1
                 posts = Post.objects.filter(mission_number_id=one["id"])
