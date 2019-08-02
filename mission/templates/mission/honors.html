@@ -6,15 +6,59 @@
 <br>
 <br>
 {% endif %}
+<head>
+<style>
+    h3{
+        margin: 35px;
+        text-align: center;
+    }
+    .honorcard{
+      width:90%;
+      margin: auto;
+      border-radius: 25px;
+      -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      padding-top: 10px; 
+    }
 
+    #honor_mission{
+        margin-left:35px;
+        font-size: 15px;
+        color: #616161;
+    }
+    #honor_post{
+        margin-left:35px;
+        font-size: 25px;
+        color: #414141
+    }
+    #button{
+        border: 1px solid #FFE84B;
+        border-radius: 5px;
+        width:80px;
+        background: #FFE84B;
+        margin-left: 210px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
 <!--몇회차+제목
 {% for first in 객체s.all %}
 {% endfor %}
 -->
-<h3>honors.html</h3>
 
+<h3>명예의 전당</h3>
+
+<div class="honorcard">
 {% for mission, post in honor %}
-    미션이름 : {{ mission }}<br/>
-    우승한 글 : {{ post }}<br/><br/>
+    <span id="honor_mission">Mission: {{ mission }}<br/></span>
+    <span id="honor_post">{{ post }}<br/><br/></span>
+    <!--득표수+자세히-->
+    <button id="button"><a href="#">자세히</a></button> 
 {% endfor %}
-{% endblock %}
+</div>
+{% endblock %}    
+</body>

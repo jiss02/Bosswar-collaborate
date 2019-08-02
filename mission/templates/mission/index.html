@@ -1,70 +1,117 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% if Mission_end %}
-<br>
-<br>
-{{ Mission_end }}
-<br>
-{% endif %}
+<head>
+  <link rel="stylesheet" type="text/css" href="/Users/guinness/hackaton/centerhack/mission/templates/mission/mission_css/index.css" />
+  <style type="text/css">
+    .jumbotron{
+      background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+    }
+    #missionname,#clock{
+      color:white;
+      text-align: center;
+    }
+    .card{
+      border-radius: 25px;
+      -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+    p{
+      margin-left:35px;
+      color:black;
+      text-align: left;
+    }
+    #title{
+      margin-top: 5px;
+      font-size: 25px;
+      color: #414141;
+    }
+    #writer,#users{
+      font-size: 15px;
+      color: #616161;
+    }
+    #image{
+      width: 300px;
+      height:150px;
+      margin-bottom:40px;
+      text-align: center;
+    }
+</style>
 
-{% for m in mission  %}
-<h1>{{m.mission_name}}</h1>
-{% endfor %}
-
-<a href="{% url 'ideaboard' %}">아이디어보드</a>
-<br>
-<a href="{% url 'honors' %}">명예의 전당</a>
-
-<br>
-<br>
-
-{% for post in posts %}
-<a href="{% url 'detail' post.id %}">{{post.title}} </a>
-<br>
-<img src="{{post.content.url}}" alt="이미지" width="150" height="90"/>
-<hr>
-<br>
-{% endfor %}
-<br>
- {% if posts.has_previous %}
-  <a href="?page=1">First</a>
-  <a href="?page={{posts.previous_page_number}}">Previous</a>
-  {% else %}
-  <button>First</button>
-  <button>Previous</button>
+</head>
+<body>
+  {% if Mission_end %}
+  <br>
+  <br>
+  {{ Mission_end }}
+  <br>
   {% endif %}
-
-
-  <span>{{posts.number}}</span>
-  <span> of </span>
-  <span>{{posts.paginator.num_pages}}</span>
-
   
-  {% if posts.has_next %}
-  <a href="?page={{posts.next_page_number}}">Next</a>
-  <a href="?page={{posts.paginator.num_pages}}">Last</a>
-  {% else %}
-  <button>Next</button>
-  <button>Last</button>
-  {% endif %}
-<br>
-<br>
-{% if user.is_authenticated %}
-<a href="{% url 'postcreate' %}">참가하기</a>
-<br>
-<a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-<form action="{% url 'logout' %}" method="POST" id="logout">
-{% csrf_token %}
-<input type="hidden">
-</form>
-<br>
+  <div class="jumbotron">
+    {% for m in mission  %}
+    <h2 id="missionname">{{m.mission_name}}</h2>
+    <h4 id="clock">시간추가</h4>
+    {% endfor %}
+  </div>  
+  
+  <br>
+  
+  {% for post in posts %}
+  <div class="card" align='center'>
+    <p id='title'>{{post.title}}</p>
+    <p id='writer'>작성자: {{post.writer}} <br> 득표수:{{post.users}}</p>  
+    <a href="{% url 'detail' post.id %}">
+       
+      <img id="image" src="{{post.content.url}}" alt="이미지"  />
+    </a>
+  </div>
+  <br>
+  {% endfor %}
+</div>
 
-{% else %}
-<a href="{% url 'signup' %}">회원가입</a>
-<br>
-<a href="{% url 'login' %}">로그인</a>
-<br>
-<a href="{% url 'login' %}" onclick="return confirm('로그인을 한 후, \'참가하기\'가 가능합니다.')">참가하기</a>
-{% endif %}
-{% endblock content%}
+  <!--페이지네이션-->
+   {% if posts.has_previous %}
+    <a href="?page=1">First</a>
+    <a href="?page={{posts.previous_page_number}}">Previous</a>
+    {% else %}
+    <button>First</button>
+    <button>Previous</button>
+    {% endif %}
+  
+  
+    <span>{{posts.number}}</span>
+    <span> of </span>
+    <span>{{posts.paginator.num_pages}}</span>
+  
+    
+    {% if posts.has_next %}
+    <a href="?page={{posts.next_page_number}}">Next</a>
+    <a href="?page={{posts.paginator.num_pages}}">Last</a>
+    {% else %}
+    <button>Next</button>
+    <button>Last</button>
+    {% endif %}
+  <br>
+  <br>
+  {% if user.is_authenticated %}
+  <a href="{% url 'postcreate' %}">참가하기</a>
+  <br>
+  <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+  <form action="{% url 'logout' %}" method="POST" id="logout">
+  {% csrf_token %}
+  <input type="hidden">
+  </form>
+  <br>
+  
+  {% else %}
+  <a href="{% url 'signup' %}">회원가입</a>
+  <br>
+  <a href="{% url 'login' %}">로그인</a>
+  <br>
+  <a href="{% url 'login' %}" onclick="return confirm('로그인을 한 후, \'참가하기\'가 가능합니다.')">참가하기</a>
+  {% endif %}
+  {% endblock content%}  
+</body>

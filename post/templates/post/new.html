@@ -6,16 +6,36 @@
 <br>
 <br>
 {% endif %}
+<head>
+    <style type="text/css">
+        h4{
 
-<h1>new.html</h1>
+        }
+        
+    </style>
+</head>
+<body>
 
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
-        {{form.as_table}}
+    <h4>
+        <span id="number">미션넘버:{{form.mission_number}}</span> 
+        <br>
+        <span id="title">제목:{{form.title}}</span> 
+        <br>
+        <span id='content'>사진:{{form.content}}</span> 
+        <br>
+        <span id='urlcontent'>동영상:{{form.urlcontent}}</span> 
+        <br>
+        <span id='description'>한마디:{{form.description}}</span>
+        <br>
+        
+    </h4>
     </table>
     <br>
-    <input type="submit" value="등록">
+    <input  type="submit" value="등록">
 </form>
 
 {% endblock %}
+</body>

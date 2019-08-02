@@ -47,6 +47,9 @@ def honors(request):
 # 최신 미션 넘버 ->
 # PV객체가 많은 순서대로 정렬
 
+def about(request):
+    return render(request, 'mission/about.html')
+
 ############# 미션 관련 ################
 
 def new(request):

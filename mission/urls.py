@@ -12,4 +12,5 @@ urlpatterns = [
     path('missioncreate/', mission.views.missioncreate, name='missioncreate'),
     path('missiondelete/<int:post_id>', mission.views.missiondelete, name='missiondelete'),
     path('honors/', mission.views.honors, name='honors'),
+    path('about/', mission.views.about, name='about'),
 ]

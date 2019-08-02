@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+
 <p>작성자: {{idea.whoseidea}}</p>
 <p>제목: {{idea.title}}</p>
 <p>내용: {{idea.content}}</p>
@@ -7,3 +10,5 @@
 {% else %}
 {% endif %}
 <a href="{% url 'ideaboard' %}">아이디어 게시판으로</a>
+
+{% endblock content %}
