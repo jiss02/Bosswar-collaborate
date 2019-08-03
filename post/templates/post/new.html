@@ -8,33 +8,58 @@
 {% endif %}
 <head>
     <style type="text/css">
-        h4{
-
-        }
-        
+    .new-form{
+    text-align:left;
+    margin-left:50px;
+    margin-top:400px;
+    } 
+    #number,#title,#content,#urlcontent{
+        font-size:40px;
+        width:70%;
+        color:#414141;
+        background-color:yellow;
+    }
+    #description{
+        border-color: thin solid #616161;   
+    }
+    input[type=submit]{
+        border-radius:10px;
+        border-color:transparent;
+        background-color:#FC134F;
+        width:70%;
+        padding:20px;
+        font-size:40px;
+        color:white;
+        margin-top : 15px;
+    }
+    th{
+        text-align:left;
+    }
     </style>
 </head>
 <body>
 
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+    <div class='new-form'>
     <table>
-    <h4>
-        <span id="number">미션넘버:{{form.mission_number}}</span> 
-        <br>
-        <span id="title">제목:{{form.title}}</span> 
-        <br>
-        <span id='content'>사진:{{form.content}}</span> 
-        <br>
-        <span id='urlcontent'>동영상:{{form.urlcontent}}</span> 
-        <br>
-        <span id='description'>한마디:{{form.description}}</span>
-        <br>
         
-    </h4>
+            미션넘버:<span id="number">{{form.mission_number}}</span> 
+                    <br>
+                    제목:<span id="title">{{form.title}}</span> 
+                    <br>
+                    사진:<span id='content'>{{form.content}}</span> 
+                    <br>
+                    동영상:<span id='urlcontent'>{{form.urlcontent}}</span> 
+                    <br>
+                    한마디:<span id='description'>{{form.description}}</span>
+                    <br>           
     </table>
+    
+    
     <br>
     <input  type="submit" value="등록">
+</div>
 </form>
 
 {% endblock %}

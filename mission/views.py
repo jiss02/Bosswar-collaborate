@@ -15,6 +15,8 @@ def index(request):
     paginator = Paginator(posts_all, 6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
+    date = 'Jan 5, 2021 15:37:25'
+    date2 = 'Jan. 31, 2020, 11:54 p.m.'
     return render(request, 'mission/index.html',{'posts':posts,'posts_all':posts_all,'mission':mission})
 
 ############# 명예의 전당 ##############

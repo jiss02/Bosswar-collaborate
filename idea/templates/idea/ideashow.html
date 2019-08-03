@@ -1,14 +1,29 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'idea/idea_board.css' %}">
+{% endblock head %}
+
 {% block content %}
 
-<p>작성자: {{idea.whoseidea}}</p>
-<p>제목: {{idea.title}}</p>
-<p>내용: {{idea.content}}</p>
+<div align="center">
+    <div class="card">
 
-{% if request.user == idea.whoseidea  %}
-<a href="{% url 'ideadelete' idea.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
-{% else %}
-{% endif %}
-<a href="{% url 'ideaboard' %}">아이디어 게시판으로</a>
+        <h5><div class="border_1">제목: {{idea.title}}</div></h5>
+        <p>작성자: {{idea.whoseidea}}</p>
+        <p>내용: {{idea.content}}</p>
+    
+
+        {% if request.user == idea.whoseidea  %}
+        <a href="{% url 'ideadelete' idea.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
+        {% else %}
+        {% endif %}
+        <a href="{% url 'ideaboard' %}"><span style="color: #FC134F;">아이디어 게시판으로</span></a>
+        <br>
+    </div>
+
+</div>
 
 {% endblock content %}

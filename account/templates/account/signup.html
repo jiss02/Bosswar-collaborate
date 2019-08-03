@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block head %}
-
+    <link rel="stylesheet" href="{% static 'account/signup.css' %}">
 {% endblock head %}
 
 {% block content %}
@@ -9,14 +9,12 @@
 {{ pwerror }}
 {% endif %}
 
-
-    <h1>sign up</h1>
+    <h1>Welcome <br> New Boss!</h1>
+    <div class='signup-form'>
     <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
-        Username:
         <br>
-        <input type="text" id = 'username 'name ="username" value="" pattern="^[가-힣]{2,20}$" required='required' onkeyup='duplicationcheck()'>
-
+        <input type="text" id = 'username 'name ="username" value="" pattern="^[가-힣]{2,20}$" placeholder='이름' required='required' onkeyup='duplicationcheck()'>
         <br>
         <!--
         Email:
@@ -25,20 +23,17 @@
         <br>
          [a-zA-Z]\D{6,10}\d{2,6}
         -->
-        Phonenumber:
         <br>
-        <input type="text" name="phonenumber" inputmode='numeric' pattern='\d{3}-\d{3,4}-\d{4}' placeholder='ex)010-1234-1234' required='required'>
-        <br>
-        Password:
-        <br>
-       
-        <input type="password" name="password1" pattern="^[A-Za-z0-9]{6,12}$" value="" required='required'>
-        <br>
-        Confirm Password:
-        <br>
-        <input type="password" name="password2" value="" required='required'>
+        <input type="text" name="phonenumber" inputmode='numeric' pattern='\d{3}-\d{3,4}-\d{4}' placeholder='전화번호' required='required'>
         <br>
         <br>
-        <input type="submit" value="sign up">
+        <input type="password" name="password1" placeholder='비밀번호' pattern="^[A-Za-z0-9]{6,12}$" value="" required='required'>
+        <h5>*영문 대소문자, 숫자 6~12자리</h5>
+        <br>
+        <input type="password" name="password2" value="" placeholder='비밀번호 확인' required='required'>
+        <br>
+        <br>
+        <input type="submit" value="회원가입">
         </form>
+    </div>
 {% endblock %}

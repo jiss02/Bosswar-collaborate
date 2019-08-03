@@ -1,14 +1,23 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'idea/idea_board.css' %}">
+{% endblock head %}
+
 {% block content %}
 
-<h1>idea/new.html</h1>
+<div align="center">
 
-<form method='POST'>
-    {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
-    <br>
-    <input type="submit" value="등록">
+    <h1>새로운 아이디어</h1>
+
+    <form method='POST'>
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <input type="submit" value="등록">
+</div>
 
 {% endblock content %}

@@ -1,50 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
+{% load staticfiles %}
 {% if error %}
 {{ error }}
 <br>
 <br>
 {% endif %}
-<head>
-<style>
-    h3{
-        margin: 35px;
-        text-align: center;
-    }
-    .honorcard{
-      width:90%;
-      margin: auto;
-      border-radius: 25px;
-      -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      padding-top: 10px; 
-    }
-
-    #honor_mission{
-        margin-left:35px;
-        font-size: 15px;
-        color: #616161;
-    }
-    #honor_post{
-        margin-left:35px;
-        font-size: 25px;
-        color: #414141
-    }
-    #button{
-        border: 1px solid #FFE84B;
-        border-radius: 5px;
-        width:80px;
-        background: #FFE84B;
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
-</style>
-</head>
-<body>
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mission/honors.css' %}" />
+{% endblock head %}
 <!--몇회차+제목
 {% for first in 객체s.all %}
 {% endfor %}

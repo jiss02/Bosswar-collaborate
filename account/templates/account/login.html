@@ -1,38 +1,19 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+   <link rel="stylesheet" href="{% static 'account/login.css' %}">
+{% endblock head %}
+
 {% block content %}
 {% if error %}
 {{ error }}
 <br>
 <br>
 {% endif %}
-<head>
-    <style>
-        input[type="text"]{
-            font-size:40px;
-            color:#B3B3B3;
-            width:70%;
-            border-color:transparent;
-            border-bottom: thin solid #616161;
-        }
-        input[type="password"]{
-            font-size:40px;
-            width:70%;
-            color:#B3B3B3;
-            border-color:transparent;
-            border-bottom: thin solid #616161;
-        }
-        input[type='submit']{
-            border-radius:10px;
-            border-color:transparent;
-            background-color:#FC134F;
-            width:70%;
-            padding:20px;
-            font-size:40px;
-            color:white;
-        }
-    </style>
-</head>
-<img src="{% static logo.png %}" alt="">
+<img class= "login_star" src="{% static 'mission/img/favicon.png' %}" alt="왜안돼ㅜ">
+<h2>보스대전</h2>
+<div class='login-form'>
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     <br>
@@ -44,5 +25,6 @@
     <br>
     <input type="submit" value="로그인">
 </form>
+</div>
 
 {% endblock %}
