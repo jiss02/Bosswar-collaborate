@@ -1,0 +1,41 @@
+.jumbotron{
+    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+}
+
+#missionname, #clock{
+    color:white;
+    text-align: center;
+}
+
+.card{
+    border-radius: 25px;
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+p{
+    margin-left:35px;
+    color:black;
+    text-align: left;
+}
+
+#title{
+    margin-top: 5px;
+    font-size: 25px;
+    color: #414141;
+}
+
+#writer,#users{
+    font-size: 15px;
+    color: #616161;
+}
+
+#image{
+    width: 300px;
+    height:150px;
+    margin-bottom:40px;
+    text-align: center;
+}

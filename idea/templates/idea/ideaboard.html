@@ -1,29 +1,32 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'idea/idea_board.css' %}">
+{% endblock head %}
+
+
 {% block content %}
+
 <div align="center">
-    
+
     <br>
-    <h2><img src="pixel_lightbulb.png"> 다음 <span style="color: #FC134F; font-weight: bold;">MISSION</span>은?</h2>
+    <h2><img src="{% static 'idea/img/light.png' %}" width=50px height=50px> 다음 <span style="color: #FC134F; font-weight: bold;">MISSION</span>은?</h2>
     <br>
-    <h4>보스 여러분들의 빛나는 아이디어를 적어주세요!!</h4>
+    <h3>보스 여러분들의<br>빛나는 아이디어를 적어주세요!!</h3>
+    <br>
     <br>
 
-    <style>
-        ul.idealist{
-            list-style-type: none;
-            border-bottom: 1px solid #FC134F;
-            width: 300px;
-            padding: 10px;
-            margin: auto;
-        }
-    </style>
-
-<body>
     {% for idea in ideas %}
-    <ul class="idealist">
-        <li><a href="{% url 'ideashow' idea.id %}">{{idea.title}}</a></li>
-    </ul>
-    <br>
+    <div class="card">
+        <h5 style="font-weight: bold;"><a href="{% url 'ideashow' idea.id %}">{{idea.title}}</a></h5>
+    
+
+    
+        <p>{{idea.content}}</p>
+        <br>
+        <br>
+    </div>
     {% endfor %}
     <br>
     <br>
@@ -34,7 +37,7 @@
     <a href="{% url 'index' %}">메인화면으로 돌아가기</a>
     <br>
     <br>
-</body>
+
 </div>
 
 {% endblock content %}

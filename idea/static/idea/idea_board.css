@@ -1,0 +1,13 @@
+ul.idealist{
+    list-style: none;
+    border-bottom: 1px solid #FC134F;
+    width: 300px;
+    padding: 10px;
+    margin: auto;
+}
+
+.border_style{
+    border-bottom: 1px solid #D3D3D3;
+    width: 300px;
+    margin: auto;
+}

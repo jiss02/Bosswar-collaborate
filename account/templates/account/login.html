@@ -5,21 +5,44 @@
 <br>
 <br>
 {% endif %}
-
-<h1>Login</h1>
-
+<head>
+    <style>
+        input[type="text"]{
+            font-size:40px;
+            color:#B3B3B3;
+            width:70%;
+            border-color:transparent;
+            border-bottom: thin solid #616161;
+        }
+        input[type="password"]{
+            font-size:40px;
+            width:70%;
+            color:#B3B3B3;
+            border-color:transparent;
+            border-bottom: thin solid #616161;
+        }
+        input[type='submit']{
+            border-radius:10px;
+            border-color:transparent;
+            background-color:#FC134F;
+            width:70%;
+            padding:20px;
+            font-size:40px;
+            color:white;
+        }
+    </style>
+</head>
+<img src="{% static logo.png %}" alt="">
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
-    Username:
     <br>
-    <input name="username" type="text" value="" placeholder="아이디를 입력하세요." required='required'>
+    <span id='id'><input align='center' name="username" type="text" value="" placeholder="아이디" required='required'></span>
+    <br> 
     <br>
-    Password:
-    <br>
-    <input name="password" type="password" value="" placeholder="비밀번호를 입력하세요." required='required'>
+    <span id='pwd'><input name="password" type="password" value="" placeholder="비밀번호" required='required'></span>
     <br>
     <br>
-    <input type="submit" value="Login">
+    <input type="submit" value="로그인">
 </form>
 
 {% endblock %}

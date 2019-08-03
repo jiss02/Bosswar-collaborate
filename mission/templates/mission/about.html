@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mission/mission_about.css' %}" />
+{% endblock head %}
+
 {% block content %}
 
 <div align="center">
 
-    <h1 style="font-weight: bold;">로고</h1>
+    <h1>
+        <img src="{% static 'mission/img/favicon.png' %}" width=80px height=80px>
+    </h1>
     <br>
 
-    <h4>"세상에 숨어있는 모든 보스들을 위한 서비스"</h4>
+    <div class="about_container">
+        <h3><div align="left">"세상에 숨어있는</div><br><div align="right">모든 보스들을 위한 서비스"</div></h3>
+    </div>
     <br>
     <br>
 

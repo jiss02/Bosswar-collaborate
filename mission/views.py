@@ -49,7 +49,6 @@ def honors(request):
 
 def about(request):
     return render(request, 'mission/about.html')
-
 ############# 미션 관련 ################
 
 def new(request):

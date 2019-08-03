@@ -128,7 +128,12 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'post', 'static'),
+    os.path.join(BASE_DIR, 'mission', 'static'),
+    os.path.join(BASE_DIR, 'idea', 'static'),
+    os.path.join(BASE_DIR, 'account', 'static'),
+    os.path.join(BASE_DIR, 'profiles', 'static'),
 ]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
