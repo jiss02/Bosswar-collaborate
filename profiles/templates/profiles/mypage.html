@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block centername %}
+마이페이지
+{% endblock centername %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'profiles/mypage.css' %}" />
+{% endblock head %}
+
+{% block content %}
+
+<style>
+.profile{
+
+}
+.list{
+
+}
+.mypostcard{
+    border-radius: 25px;
+    margin-left:70px;
+    margin-right:70px;
+    margin-bottom: 50px;
+    border-top: transparent;
+    box-shadow:  10px 10px 10px 1px rgba(173, 173, 173,0.15);    
+}
+#post_img{
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    max-width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    
+    margin-bottom:40px;
+}
+</style>
+<div class='mypage'>
+
+    {% if user.is_authenticated %}
+    <div class = 'profile'>
+    <img src="#" alt="">    
+    <p>이름:{{user.username}}</p> 
+    <p>보유 투표수:{{profile.votes}}</p> 
+    <p>보유 포인트:{{profile.point}}</p> 
+    </div>
+    <div class='list'>
+    <p id = 'postlist'>내가 쓴 게시글</p>
+    {% for post  in mypost %}
+        <div class='mypostcard'>
+        {{post.title}}
+        <br>
+        <img id='post_img'src="{{post.content.url}}" alt="">
+        <br>
+        </div>
+    {% endfor %}
+
+    
+    
+    <p id = 'votelist'>내가 투표한 게시글</p>
+
+
+    {% if votes %}
+
+        {% for vote_post in votes  %}
+
+            {{vote_post.title}}
+            <br>
+            {{vote_post.title}}
+        
+        {% endfor %}
+    
+    {% else %}
+        투표한 글이 없습니다.
+    {% endif %}
+
+</div>
+    {% else %}
+        회원가입 후 이용가능한 페이지입니다
+    {% endif %}
+</div>
+
+{% endblock content%} 

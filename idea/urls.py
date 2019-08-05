@@ -3,7 +3,7 @@ from django.urls import path
 import idea.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
     path('', idea.views.ideaboard, name='ideaboard'),
     path('ideanew/', idea.views.ideanew, name='ideanew'),
     path('ideashow/<int:idea_id>', idea.views.ideashow, name='ideashow'),

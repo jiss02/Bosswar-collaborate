@@ -8,13 +8,7 @@ from django.db.models import Count
 from django.db.models.aggregates import Max
 from django.db.models import Avg, Max, Sum, Count
 
-###
-from post.forms import PostForm
-from post.models import Post
-from profiles.models import Profile
-from mission.models import Mission
-from post.models import PostVote
-########### 포스트 띄우기 #############
+
 
 def index(request): 
     mission = Mission.objects.filter(start_at__lt = datetime.datetime.now()).filter(end_at__gt = datetime.datetime.now()).all()
@@ -53,11 +47,19 @@ def honors(request):
                         honors.append([get_object_or_404(Mission, pk=one["id"]), get_object_or_404(Post, pk=post_id)])
 
         return render(request, 'mission/honors.html', {'postvotes': postvotes,'honor':honors})
+
 # 최신 미션 넘버 ->
 # PV객체가 많은 순서대로 정렬
 
+########### 명예의 전당 자세히 ############
+
+
+
+################# 어바웃 #################
+
 def about(request):
     return render(request, 'mission/about.html')
+
 ############# 미션 관련 ################
 
 def new(request):

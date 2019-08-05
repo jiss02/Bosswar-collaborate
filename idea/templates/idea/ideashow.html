@@ -13,18 +13,19 @@
 {% block content %}
 
 <div align="center">
-    <div class="card">
+    <div class="idea_detail">
 
-        <h5><div class="border_1">제목: {{idea.title}}</div></h5>
-        <p>작성자: {{idea.whoseidea}}</p>
-        <p>내용: {{idea.content}}</p>
+        <h5><div class="border_1">{{idea.title}}</div></h5>
+        <p style="font-size: 14px;">작성자: {{idea.whoseidea}}</p>
+        <p>{{idea.content}}</p>
     
 
         {% if request.user == idea.whoseidea  %}
         <a href="{% url 'ideadelete' idea.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
         {% else %}
         {% endif %}
-        <a href="{% url 'ideaboard' %}"><span style="color: #FC134F;">아이디어 게시판으로</span></a>
+        <br><br>
+        <a href="{% url 'ideaboard' %}" ><span style="color: #FC134F; ">아이디어 게시판으로</span></a>
         <br>
     </div>
 

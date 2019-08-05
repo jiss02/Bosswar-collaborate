@@ -50,14 +50,19 @@ p{
     
 }
 
-#writer,#users{
+#writer{
     font-size: 35px;
     color: #616161;
 }
+#votes{
+    font-size: 35px;
+    color: #616161;
+    
+}
 
 #image{
-    width: 500px;
-    height: 500px;
+    width: 700px;
+    height: 400px;
     max-width: 100%;
     min-height: 100%;
     overflow: hidden;

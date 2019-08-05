@@ -72,8 +72,9 @@
   <div class="card" align='center'>
     <a href="{% url 'detail' post.id %}"> 
     <p id='title'>{{post.title}}</p>
-    <p id='writer'>작성자: {{post.writer}}</p>
-    <p id='votes'>득표수: {{post.votelike.count}}</p> 
+    <p id='writer'>작성자: {{post.writer}}
+    <br> 득표수: {{post.votelike.count}}</p>
+    
     
       <img id="image" src="{{post.content.url}}" alt="이미지"  />
     </a>

@@ -19,15 +19,26 @@
 {% endfor %}
 -->
 
-<h3>명예의 전당</h3>
+<br><br>
+<div align="center">
+    <h1 style="font-family: 'Sam3KRFont';">명예의 전당</h1>
+</div>
+
+<br>
 
 <div class="honorcard">
+     
 {% for mission, post in honor %}
-    <span id="honor_mission">Mission: {{ mission }}<br/></span>
-    <span id="honor_post">{{ post }}<br/><br/></span>
+    <span id="honor_mission">Mission: {{ mission.mission_name }}<br></span>
+    
+    <span id="honor_post">{{ post }}<br><br></span>
+
+    <div align="right"><div class="button"><a href="#">자세히</a></div></div>
+    <br>
+    <br>
+    
     <!--득표수+자세히-->
-    <button id="button"><a href="#">자세히</a></button> 
+    
 {% endfor %}
-</div>
-{% endblock %}    
-</body>
+</div> 
+{% endblock %}
