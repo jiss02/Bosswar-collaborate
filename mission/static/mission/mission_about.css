@@ -1,16 +1,21 @@
 .about_container {
-    padding: 40px 20px 40px 20px;
+    padding: 40px 60px;
     background-color: #F5F5F5;
-    width: 500px;
+    width: 600px;
 }
 
 .boss {
     color: #FC134F;
     font-weight: bold;
     font-family: 'DungGeunMo';
-    font-size: 50px;
+    font-size: 40px;
 }
-p,h3{
+p,h4{
     font-family: 'DungGeunMo';
+}
+
+div.about{
+    font-size: 1.4rem;
+    width: 750px;
 }
 @font-face { font-family: 'DungGeunMo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff'); font-weight: normal; font-style: normal; }

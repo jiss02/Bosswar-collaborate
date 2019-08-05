@@ -1,6 +1,6 @@
 .border_1{
-    border-bottom: 1px solid #D3D3D3;
-    margin: 10px 20px 10px 20px;
+    border-bottom: 2px solid #D3D3D3;
+    margin: 10px 50px 10px 50px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -39,10 +39,8 @@
     font-size: 30px;
 }
 
-
-
-a:hover {
-    color: #FC134F;
+a:hover,a:active {
+    text-decoration: none;
 }
 
 input[type=submit] {
@@ -56,17 +54,37 @@ input[type=submit] {
     font-family: 'DungGeunMo';
 }
 
+input[type=text]{
+    width: 100%;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
+input[type=textarea]{
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
-table {
-    border: #FC134F;
-}
-
-h2,h3{
+h1,h2,h3{
     font-family: 'DungGeunMo';
 }
 p{
     font-family: 'DungGeunMo';
+    text-align: left;
+    margin-left: 52px;
 }
 @font-face { font-family: 'DungGeunMo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'Sam3KRFont'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.idea_container {
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+    width: 500px;
+}

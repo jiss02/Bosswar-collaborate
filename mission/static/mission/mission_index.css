@@ -1,6 +1,6 @@
 .jumbotron{
     background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-}
+} 
 .mission_header {
     text-align: center;
     color: white;
@@ -33,26 +33,25 @@
     margin-left:70px;
     margin-right:70px;
     margin-bottom: 50px;
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-top: transparent;
+    box-shadow:  10px 10px 10px 1px rgba(173, 173, 173,0.15);
 }
 
 p{
-    margin-left:35px;
+    margin-top: 20px;
+    margin-left:70px;
     color:black;
     text-align: left;
 }
 
 #title{
-    font-size: 25px;
+    font-size: 45px;
     color: #414141;
+    
 }
 
 #writer,#users{
-    font-size: 15px;
+    font-size: 35px;
     color: #616161;
 }
 
@@ -77,11 +76,27 @@ p{
     background-color: #FC134F;
     color: white;
     border-radius: 10px;
-    width: 90%;
+    /*width: 90%;*/
     font-size: 3.5rem;
     padding: 1.5rem;
     margin: 0 auto;
     margin-bottom: 3rem;
+}
+
+.page_status {
+    font-size: 3rem;
+    padding: 10px 30px;
+}
+
+
+.btn.p {
+    background-color: #FFE84B;
+    color: #414141;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 12%;
+    padding: 30px;
+    margin: 0px 20px;
 }
 
 * {

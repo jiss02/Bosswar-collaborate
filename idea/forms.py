@@ -17,10 +17,11 @@ class IdeaForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'rows': '5',
+                    'placeholder': '내용을 입력하세요',
                 }
             )
         }
         labels = {
-            'title': '제목',
-            'content': '내용',
+            'title': '',
+            'content': '',
         }

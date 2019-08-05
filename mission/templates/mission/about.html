@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block centername %}
+ABOUT
+{% endblock centername %}
+
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'mission/mission_about.css' %}" />
 {% endblock head %}
@@ -10,17 +14,32 @@
 <div align="center">
 
     <h1>
-        <img src="{% static 'mission/img/favicon.png' %}" width=80px height=80px>
+        <img src="{% static 'mission/img/boss.png' %}" width=80px height=80px>
     </h1>
     <br>
 
     <div class="about_container">
-        <h3><div style="font-weight: bold;"><div align="left">"세상에 숨어있는</div><br><div align="right">모든 <span class="boss">BOSS</span>들을 위한 서비스"</div></div></h3>
+        <h4><div style="font-weight: bold;"><div align="left">"세상에 숨어있는</div><br><div align="right">모든 <span class="boss">BOSS</span> 들을 위한 서비스"</div></div></h4>
     </div>
     <br>
     <br>
-
-    <p>보스대전은 주어진 미션을 수행해 1등이 되는 분께 상금을 주는 앱입니다...</p>
+    <div class='about'>
+    <p>
+    보스대전은 누구나 일등을 할 수 있다는 아이디어에서 시작했습니다.
+    </p>
+    <p>
+    재미없는 경쟁 속에서 지치진 않으셨나요?
+    </p>
+    <p>
+    자신만의 숨겨진 특기를 남들에게 보여줄 기회가 없으셨나요?
+    </p>
+    <p>
+    "아, 이런 대회가 있으면 일등했을텐데" 라는 생각을 해본적이 있으신가요?
+    </p>
+    <p>
+    그렇다면 당장 <span style='color: #FC134F; font-size:1.8rem; font-weight: bold;'>보스</span>가 되어보세요!
+    </p>
+    </div>
 
 </div>
 

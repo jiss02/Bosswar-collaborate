@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block centername %}
+보스대전
+{% endblock centername %}
+
+{% block head %}
+    <link type='text/css' rel='stylesheet' href="{% static 'post/detail.css' %}">
+{% endblock head %}
+    
 {% block content %}
 {% load static %}
 {% if error %}
@@ -35,21 +45,21 @@ URL :
 <br>
 <br>
 {% endif %}
-
+<div class="btn main-btn">
 {% if post.writer != request.user %}
     {% if vote %}
         <a href="{% url 'postvote' post.id %}">투표취소</a>
     {% elif request.user.profile.votes == 0 %}
         <a href="{% url 'postvote' post.id %}" onclick="alert('모든 표가 소진되었습니다!')">투표하기</a>
-    {% elif post.writer == request.user %}
+    {% elif post.writer != request.user %}
         <a href="{% url 'postvote' post.id %}">투표하기</a>
     {% endif %}
 {% endif %}
+</div>
 {% if post.writer == request.user %}
 <a href="{% url 'postdelete' post.id %}" onclick="return confirm('삭제하시겠습니까?')">삭제하기</a>
 {% else %}
 {% endif %}
-
-<a href="{% url 'index' %}">메인으로</a>
+<a class='btn main-btn' href="{% url 'index' %}">메인으로</a>
 {% endblock %}  
 </div>  

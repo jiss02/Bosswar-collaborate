@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block centername %}
+보스대전
+{% endblock centername %}
+
 {% block head %}
    <link rel="stylesheet" href="{% static 'account/login.css' %}">
 {% endblock head %}
 
 {% block content %}
 {% if error %}
-{{ error }}
+<span style="text-align: center;">{{ error }}<span>
 <br>
 <br>
 {% endif %}
-<img class= "login_star" src="{% static 'mission/img/favicon.png' %}" alt="왜안돼ㅜ">
+<img class= "login_star" src="{% static 'mission/img/boss.png' %}" alt="왜안돼ㅜ">
 <h2>보스대전</h2>
 <div class='login-form'>
 <form method="POST" action="{% url 'login' %}">

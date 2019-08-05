@@ -1,0 +1,38 @@
+h3{
+    margin: 35px;
+    text-align: center;
+    font-family: 'Sam3KRFont';
+}
+.honorcard{
+  width:90%;
+  margin: auto;
+  border-radius: 25px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding-top: 10px;
+  font-family: 'DungGeunMo'; 
+}
+
+#honor_mission{
+    margin-left:35px;
+    font-size: 15px;
+    color: #616161;
+}
+#honor_post{
+    margin-left:35px;
+    font-size: 25px;
+    color: #414141
+}
+#button{
+    border: 1px solid #FFE84B;
+    border-radius: 5px;
+    width:80px;
+    background: #FFE84B;
+    float: right;
+    margin-bottom: 20px;
+}
+@font-face { font-family: 'Sam3KRFont'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'DungGeunMo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff'); font-weight: normal; font-style: normal; }

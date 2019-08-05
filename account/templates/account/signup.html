@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block centername %}
+보스대전
+{% endblock centername %}
+
 {% block head %}
     <link rel="stylesheet" href="{% static 'account/signup.css' %}">
 {% endblock head %}
 
 {% block content %}
 {% if pwerror %}
-{{ pwerror }}
+<span style="text-align: center;">{{ pwerror }}<span>
 {% endif %}
 
     <h1>Welcome <br> New Boss!</h1>

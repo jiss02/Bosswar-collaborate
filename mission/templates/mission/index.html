@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block centername %}
+보스대전
+{% endblock centername %}
+
 {% block head %}
   <link rel="stylesheet" type="text/css" href="{% static 'mission/mission_index.css' %}" />
   
@@ -40,6 +44,7 @@
         document.getElementById("demo").innerHTML = "기간이 지났습니다.";
       }
     }, 1000);
+   
   </script>
 
 {% endblock head %}
@@ -63,49 +68,51 @@
   </div>  
 
   <br>
-
   {% for post in posts %}
   <div class="card" align='center'>
+    <a href="{% url 'detail' post.id %}"> 
     <p id='title'>{{post.title}}</p>
-    <p id='writer'>작성자: {{post.writer}} <br> 득표수: {{post.votelike.count}}</p>  
-    <a href="{% url 'detail' post.id %}">
-      
+    <p id='writer'>작성자: {{post.writer}}</p>
+    <p id='votes'>득표수: {{post.votelike.count}}</p> 
+    
       <img id="image" src="{{post.content.url}}" alt="이미지"  />
     </a>
   </div>
   <br>
   {% endfor %}
   </div>
-
+  
   <!--페이지네이션-->
 
   <div class = "pagination justify-content-center">
   
-    <div class = "front_pagnation">
+    
       {% if posts.has_previous %}
-      <button type="button" onclick="location.href='?page=1' ">First</button>
-      <button type="button" onclick="location.href='?page={{posts.previous_page_number}}' ">Last</button>
+      <button class="btn p" type="button" onclick="location.href='?page=1' ">처음</button>
+      <button class="btn p" type="button" onclick="location.href='?page={{posts.previous_page_number}}' ">이전</button>
       {% else %}
-      <button>First</button>
-      <button>Previous</button>
+      <button class="btn p">처음</button>
+      <button class="btn p">이전</button>
       {% endif %}
+    <div class = "front_pagnation">
     </div>
 
     <div class = "page_status">
-      <span>{{posts.number}}</span>
-      <span> of </span>
-      <span>{{posts.paginator.num_pages}}</span>
+      <span class="page">{{posts.number}}</span>
+      <span class="page"> of </span>
+      <span class="page" >{{posts.paginator.num_pages}}</span>
     </div>
       
-    <div class = "back_pagnation">
+    
       {% if posts.has_next %}
-      <button type="button" onclick="location.href='?page={{posts.next_page_number}}' ">Next</button>
-      <button type="button" onclick="location.href='?page={{posts.paginator.num_pages}}' ">Last</button>
+      <button class="btn p" type="button" onclick="location.href='?page={{posts.next_page_number}}' ">다음</button>
+      <button class="btn p" type="button" onclick="location.href='?page={{posts.paginator.num_pages}}' ">마지막</button>
 
       {% else %}
-      <button>Next</button>
-      <button>Last</button>
+      <button class="btn p">다음</button>
+      <button class="btn p">마지막</button>
       {% endif %}
+    <div class = "back_pagnation">
     </div>
   </div>
   <br>
@@ -117,5 +124,7 @@
     <a class = 'btn main-btn' href="{% url 'login' %}" onclick="return confirm('로그인을 한 후, \'참가하기\'가 가능합니다.')">참가하기</a>
     {% endif %}
   </div>
+
+  
 {% endblock content%}  
 
