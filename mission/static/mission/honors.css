@@ -27,17 +27,19 @@ h3{
     color: #414141
 }
 .button{
-    border: 1px solid #FFE84B;
+    border: 1px solid #e52d27;
     border-radius: 5px;
-    width:80px;
-    background: #FFE84B;
-    float: right;
-    margin-bottom: 20px;
+    width: 70%;
+    padding:10px;
+    margin-left:90%;
+    background: #e52d27;
     text-align: center;
 }
+a:hover,a:active {
+
+  text-decoration: none;
+}
+
 @font-face { font-family: 'Sam3KRFont'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Sam3KRFont.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'DungGeunMo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-a:hover,a:active {
-  text-decoration: none;
-}

@@ -16,7 +16,7 @@ class IdeaForm(forms.ModelForm):
             'content': forms.Textarea(
                 attrs={
                     'class': 'form-control',
-                    'rows': '5',
+                    'rows': '7',
                     'placeholder': '내용을 입력하세요',
                 }
             )

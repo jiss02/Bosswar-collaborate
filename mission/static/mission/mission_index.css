@@ -1,6 +1,19 @@
 .jumbotron{
-    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+
+    background: #e52d27;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b31217, #e52d27);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b31217, #e52d27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 } 
+
+a:hover{
+    text-decoration: none;
+}
+
+#bar {
+    background-color: black;
+}
+
 .mission_header {
     text-align: center;
     color: white;
@@ -32,7 +45,7 @@
     border-radius: 25px;
     margin-left:70px;
     margin-right:70px;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     border-top: transparent;
     box-shadow:  10px 10px 10px 1px rgba(173, 173, 173,0.15);
 }
@@ -51,11 +64,11 @@ p{
 }
 
 #writer{
-    font-size: 35px;
+    font-size: 25px;
     color: #616161;
 }
 #votes{
-    font-size: 35px;
+    font-size: 25px;
     color: #616161;
     
 }
@@ -78,7 +91,10 @@ p{
 
 .btn.main-btn {
     display: block;
-    background-color: #FC134F;
+    
+    background-color: #272323;
+
+    
     color: white;
     border-radius: 10px;
     /*width: 90%;*/
@@ -95,14 +111,17 @@ p{
 
 
 .btn.p {
-    background-color: #FFE84B;
-    color: #414141;
+    background-color: #272323;
+    
+    color: whitesmoke;
     font-size: 1.2rem;
     text-align: center;
     width: 12%;
     padding: 30px;
     margin: 0px 20px;
 }
+
+
 
 * {
     font-family: 'DungGeunMo' !important;

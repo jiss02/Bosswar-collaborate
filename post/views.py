@@ -13,11 +13,16 @@ def new(request):
 
 def detail(request,post_id):
     post_detail = get_object_or_404(Post,pk = post_id)
+    flag = False
+
+    if datetime.datetime.now() > post_detail.mission_number.end_at:
+        flag = True
+
     if request.user.is_authenticated:
         vote = PostVote.objects.filter(user=request.user, post=post_detail)
-        return render(request, 'post/detail.html', {'post':post_detail, 'vote':vote})
+        return render(request, 'post/detail.html', {'post':post_detail, 'vote':vote,'flag':flag})
     else:
-        return render(request, 'post/detail.html', {'post':post_detail})
+        return render(request, 'post/detail.html', {'post':post_detail,'flag':flag})
 
 def postcreate(request):
     if request.method == 'POST':
