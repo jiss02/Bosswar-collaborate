@@ -29,10 +29,10 @@
 <div class="honorcard">
      
 {% for mission, post in honor %}
-    <span id="honor_mission">Mission: {{ mission.mission_name }}<br></span>
+    <div id="honor_mission">도전 미션: {{ mission.mission_name }}<br></div>
     
-    <span id="honor_post">{{ post }}<br><br></span>
-
+    <div id="honor_post">{{ post.title }}</div>
+    <div id='honor_description'>{{post.description}}</div>
     <span class="button" align='center'><a href="{% url 'detail' post.id %}" style='color:white;'>보러가기</a></span>
     <br>
     <br>
