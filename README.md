@@ -97,7 +97,7 @@ whitenoise==4.1.3
 
 1. Clone the repo
 ```sh
-$ git clone https://github.com/jiss02/Bosswar.git
+$ git clone https://github.com/jiss02/Bosswar-collaborate.git
 ```
 2. Migrate Database
 ```sh
@@ -114,7 +114,7 @@ $ python manage.py runserver
 * Heroku
 &nbsp;
 ### Links
-* Project Link: https://github.com/jiss02/Bosswar.git
+* Project Link: https://github.com/jiss02/Bosswar-collaborate.git
 * Website Link: [https://bossofwar.herokuapp.com](https://bossofwar.herokuapp.com)
 &nbsp;
 ### Demo
