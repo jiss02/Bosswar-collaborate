@@ -103,11 +103,22 @@ $ git clone https://github.com/jiss02/Bosswar-collaborate.git
 ```sh
 $ python manage.py migrate
 ```
+&nbsp;3. Create config folder and key.json
+
+```sh
+$ mkdir config
+$ cd config
+$ vim key.json
+```
+
 4. Run server
+
 ```
 $ python manage.py runserver
 ```
-&nbsp;
+
+
+
 ## Details 
 
 ### Deploy
@@ -118,8 +129,6 @@ $ python manage.py runserver
 * Website Link: [https://bossofwar.herokuapp.com](https://bossofwar.herokuapp.com)
 &nbsp;
 ### Demo
-
-
 
 <div align="center">
 
