@@ -103,7 +103,7 @@ $ git clone https://github.com/jiss02/Bosswar-collaborate.git
 ```sh
 $ python manage.py migrate
 ```
-&nbsp;3. Create config folder and key.json
+3. Create config folder and key.json
 
 ```sh
 $ mkdir config
